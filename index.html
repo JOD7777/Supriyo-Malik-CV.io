@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Supriyo Malik — Front-End Developer</title>
+  <meta name="description" content="Supriyo Malik— Front-End Developer  SMecializing in Advanced Networking & Cyber Security. Portfolio showcasing projects, skills and contact.">
+  <meta name="author" content="Supriyo Malik">
+  <link rel="icon" href="data:,"><style>
+  :root{
+    --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#4f46e5; --glass: rgba(255,255,255,0.03);
+    --light-bg:#f6f8fb; --light-card:#ffffff; --light-text:#0b1220;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color: #e6eef8; background: linear-gradient(180deg,var(--bg) 0%, #071027 100%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+  a{color:inherit}
+  .container{max-width:1000px; margin:0 auto; padding:28px}
+
+  /* header */
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .avatar{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+  nav ul{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+  nav a{opacity:.9;text-decoration:none;padding:6px 10px;border-radius:8px}
+  .cta{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;text-decoration:none}
+  .hamburger{display:none;background:transparent;border:0;color:var(--muted)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:36px 0}
+  h1{font-size:clamp(28px,4vw,40px);margin:0 0 10px}
+  .title{color:#a7b4d6;font-weight:600}
+  p.lead{color:var(--muted);line-height:1.6}
+
+  .card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+  .side-profile{display:flex;flex-direction:column;gap:12px;align-items:center}
+  .big-avatar{width:180px;height:180px;border-radius:16px;background:linear-gradient(140deg,#1e293b 0%, #0b1220 100%);display:flex;align-items:center;justify-content:center;font-size:48px;color:#c7d2fe}
+
+  /* sections */
+  section{margin:28px 0}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .skills-list{display:flex;flex-direction:column;gap:8px}
+  .skill-pill{background:var(--glass);padding:8px 10px;border-radius:10px;font-weight:600;color:var(--muted)}
+
+  /* experience */
+  .job{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+  .job h4{margin:0 0 6px}
+  .muted{color:var(--muted)}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);cursor:pointer}
+  .project h5{margin:0 0 6px}
+  .links{display:flex;gap:8px}
+  .link-btn{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--muted);font-weight:600}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .contact-card{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+
+  footer{padding:28px 0;color:var(--muted);text-align:center}
+
+  /* responsive */
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;}
+    .projects{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:repeat(2,1fr)}
+    nav ul{display:none}
+    .hamburger{display:block}
+  }
+
+  /* reveal animations */
+  .reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.25,1)}
+  .reveal.show{opacity:1;transform:none}
+
+  /* light mode */
+  body.light{color:var(--light-text);background:var(--light-bg)}
+  body.light .card, body.light .job, body.light .project, body.light .contact-card{background:var(--light-card);box-shadow:0 6px 18px rgba(11,19,40,0.04)}
+  body.light .muted{color:#6b7280}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar">SM</div>
+        <div>
+          <div style="font-weight:700"> Supriyo Malik</div>
+          <div class="muted" style="font-size:13px">Advanced Networking & Cyber Security</div>
+        </div>
+      </div>
+      <nav>
+        <button class="hamburger" aria-label="menu" id="menuToggle">☰</button>
+        <ul id="navList">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <button id="themeToggle" title="Toggle light/dark" style="background:transparent;border:0;color:var(--muted);cursor:pointer">🌙</button>
+        <a class="cta" href="#contact">Hire Me</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="card reveal">
+            <div class="title">Creative cyber security and networking</div>
+            <h1>Hi, I’m <span style="color:var(--accent)">Supriyo Malik</span></h1>
+            <p class="lead">I build responsive and accessible web experiences using HTML, CSS. With a background in networking and cyber security, I bring an extra focus on secure and performant front-end systems.</p>
+            <div style="margin-top:16px;display:flex;gap:12px">
+              <a class="cta" href="#projects">View Projects</a>
+              <a class="link-btn" href="mailto:pal990452@gmail.com">Email Me</a>
+            </div>
+          </div>
+
+          <section id="skills" style="margin-top:18px">
+            <h3>Skills</h3>
+            <div class="card reveal" style="margin-top:10px;padding:12px">
+              <div class="grid-3">
+                <div>
+                  <strong>Technical</strong>
+                  <div class="skills-list" style="margin-top:8px">
+                    <span class="skill-pill">HTML</span>
+                    <span class="skill-pill">CSS</span>
+                    <span class="skill-pill">networking</span>
+                    <span class="skill-pill">cyber scurity</span>
+                    <span class="skill-pill">C, Python</span>
+                  </div>
+                </div>
+                <div>
+                  <strong>Tools</strong>
+                  <div class="skills-list" style="margin-top:8px">
+                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill">Webpack</span>
+                    <span class="skill-pill">Figma</span>
+                  </div>
+                </div>
+                <div>
+                  <strong>Soft Skills</strong>
+                  <div class="skills-list" style="margin-top:8px">
+                    <span class="skill-pill">Communication</span>
+                    <span class="skill-pill">Teamwork</span>
+                    <span class="skill-pill">Problem Solving</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="experience" style="margin-top:18px">
+            <h3>Experience</h3>
+            <div class="card reveal" style="margin-top:10px">
+              <div class="job">
+                <h4>CYBER SECURITY ANALYST JOB SIMULATION <span class="muted">(2023–Present)</span></h4>
+                <p class="muted">issued by Forage(by 5th january,2025)
+                  identity and access management(IAM)
+                  fundamentals
+                  IAM starategy assessment
+                  platfrom integration
+                </p>
+              </div>
+              
+          </section>
+
+        </div>
+
+        <aside class="side-profile">
+          <div><img src="my pic.jfif" class="big-avatar card" alt="Supriyo Malik"></div>
+          <div class="card" style="width:100%">
+            <h4 style="margin:0">Education</h4>
+            <div class="muted" style="font-size:14px;margin-top:6px">BSc in Advanced Networking and Cyber Security<br>Swami Vivekananda University — 2023</div>
+          </div>
+
+          <div class="card" style="width:100%">
+            <h4 style="margin:0">Contact</h4>
+            <div style="margin-top:8px;font-weight:600">supriyomalik58@gmail.com</div>
+            <div style="margin-top:8px;font-size:14px" class="muted">
+              <a href="https://github.com/Sayanipal58697-del" target="_blank">github.com/Sayanipal58697-del</a><br>
+              <a href="https://www.linkedin.com/in/sayani-pal-174b22294?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYBewcPQ3SoW4HdnxRYHrfw%3D%3D" target="_blank">linkedin.com/in/sayani-pal-174b22294</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h3>Projects</h3>
+        <div class="projects reveal">
+          <div class="project" onclick="openLink('https://github.com/JOD7777')">
+            <h5>Portfolio Website</h5>
+            <p class="muted">Built with React and deployed on Netlify.</p>
+            <div class="links" style="margin-top:10px">
+              <a class="link-btn" href="https://github.com/JOD7777/Supriyo-Malik-CV.io" target="_blank">GitHub</a>
+              <a class="link-btn" href="#" onclick="event.preventDefault();alert('https://jod7777.github.io/Supriyo-Malik-CV.io/')">Live Demo</a>
+            </div>
+          </div>
+
+          <div class="project" onclick="openLink('#')">
+            <h5>Task Manager App</h5>
+            <p class="muted">A simple to‑do app demonstrating state and DOM manipulation.</p>
+            <div class="links" style="margin-top:10px">
+              <a class="link-btn" href="#" onclick="event.preventDefault();alert('GitHub link placeholder')">GitHub</a>
+              <a class="link-btn" href="#" onclick="event.preventDefault();alert('Live demo link placeholder')">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <div class="card reveal">
+          <div class="contact-grid">
+            <div class="contact-card">
+              <strong>Email</strong>
+              <div class="muted" style="margin-top:8px">supriyomalik58@gmail.com</div>
+            </div>
+            <div class="contact-card">
+              <strong>LinkedIn / GitHub</strong>
+              <div class="muted" style="margin-top:8px"><a href="https://www.linkedin.com/in/supriyo-malik-174b22294?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BYBewcPQ3SoW4HdnxRYHrfw%3D%3D">LinkedIn</a> · <a href="https://github.com/JOD7777">GitHub</a></div>
+            </div>
+          </div>
+          <form id="contactForm" style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+            <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+            <input name="email" type="email" placeholder="Your email" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+            <textarea name="message" rows="4" placeholder="Message" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit"></textarea>
+            <div style="display:flex;gap:8px">
+              <button type="submit" class="cta">Send Message</button>
+              <button type="button" id="downloadResume" class="link-btn">Download Resume</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span>  Supriyo Malik · Built with HTML • CSS • networking 
+    </footer>
+  </div>
+
+<script>
+// small helpers
+function qs(sel){return document.querySelector(sel)}
+function qsa(sel){return document.querySelectorAll(sel)}
+
+// nav toggle
+const menuToggle = qs('#menuToggle'); const navList = qs('#navList');
+menuToggle && menuToggle.addEventListener('click', ()=>{navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex'});
+
+// smooth scroll on anchor clicks
+qsa('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const href = a.getAttribute('href');
+    if(href.startsWith('#')){
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  })
+})
+
+// reveal on scroll
+const reveals = qsa('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('show'); obs.unobserve(entry.target);} });
+},{threshold:.12});
+reveals.forEach(r=>obs.observe(r));
+
+// theme toggle
+const themeBtn = qs('#themeToggle'); themeBtn.addEventListener('click', ()=>{ document.body.classList.toggle('light'); themeBtn.textContent = document.body.classList.contains('light') ? '🌙' : '☀️' });
+
+// contact form (demo-only)
+const form = qs('#contactForm'); form.addEventListener('submit', e=>{ e.preventDefault(); alert('Thanks — this demo form does not send messages. Replace with your backend or Formspree URL.'); form.reset(); });
+
+// download resume (creates a small text resume file for demo)
+qs('#downloadResume').addEventListener('click', ()=>{
+  const resume = ` Supriyo Malik\nAdvanced Networking and Cyber Security\nEmail: pal990452@gmail.com\n\nExperience:\n- Front-End Developer, TechCorp (2021–Present)\n- Web Developer Intern, WebStart (2020)\n\nEducation:\nBSc in Advanced Networking and Cyber Security — Swami Vivekananda University, 2023`;
+  const blob = new Blob([resume], {type:'text/plain'});
+  const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'Supriyo_Malik_Resume.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+});
+
+// small util
+function openLink(url){ if(url.startsWith('#')) return; window.open(url,'_blank') }
+
+// year
+qs('#year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
